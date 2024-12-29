@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps - Swarn Software</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Importing Google Font -->
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Basic styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f8f9fa; /* Light gray background */
+      color: #343a40; /* Dark gray text */
+    }
+
+    header {
+      background-color: #6c757d; /* Soft blue-gray color */
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+      max-height: 120px; /* Set max height to 120px */
+      max-width: 120px; /* Set max width to 120px */
+    }
+
+    nav {
+      background-color: #495057; /* Darker gray for nav */
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px; /* Reduced padding */
+      transition: background-color 0.3s;
+      font-weight: 500; /* Medium font weight */
+      font-size: 14px; /* Reduced font size */
+    }
+
+    nav a:hover {
+      background-color: #343a40; /* Slightly darker gray on hover */
+    }
+
+    /* Active link style */
+    nav a.active {
+      background-color: #343a40; /* Highlight the active link */
+      font-weight: bold; /* Make the text bold */
+    }
+
+    main {
+      flex: 1;
+      padding: 15px; /* Reduced padding */
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center cards */
+      gap: 15px; /* Space between cards */
+      margin-top: 20px; /* Spacing above cards */
+    }
+
+    .card {
+      background-color: #fff;
+      border: 5px solid #dee2e6;
+      border-radius: 10px;
+      width: 250px; /* Fixed width for cards */
+      cursor: pointer; /* Pointer on hover */
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+    .card img {
+      width: 50%; /* Full width for the image */
+      border-top-left-radius: 5px; /* Rounded corners for the top */
+      border-top-right-radius: 5px; /* Rounded corners for the top */
+    }
+
+    .card-title {
+      padding: 10px;
+      font-size: 16px; /* Title font size */
+      font-weight: bold; /* Bold title */
+    }
+
+    .card-content {
+      display: none; /* Initially hidden */
+      padding: 10px;
+      text-align: left; /* Align text to the left */
+    }
+
+    .card-content.active {
+      display: block; /* Show when active */
+    }
+
+    .youtube-video {
+      margin: 10px 0; /* Spacing around the video */
+      text-align: center; /* Center the video */
+    }
+
+    .download-button {
+      background-color: #6c757d; /* Match header and footer color */
+      color: #fff; /* White text color */
+      text-decoration: none;
+      padding: 10px 15px; /* Padding for the button */
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      display: inline-block; /* Inline block for button */
+      margin-top: 10px; /* Margin above the button */
+    }
+
+    .download-button:hover {
+      background-color: #444; /* Darker shade on hover */
+    }
+
+    footer {
+      background-color: #495057; /* Match footer with nav */
+      color: #fff;
+      padding: 10px; /* Reduced padding */
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 5px; /* Reduced margin */
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #28a745; /* Change icon color on hover */
+    }
+
+    footer i {
+      font-size: 25px; /* Set a standard size for the icons */
+      transition: transform 0.3s;
+    }
+
+    footer i:hover {
+      transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      nav a {
+        padding: 8px;
+        font-size: 12px; /* Further reduce font size for mobile */
+      }
+
+      .card {
+        width: 100%; /* Full width for mobile */
+      }
+
+      .download-button {
+        padding: 8px 12px; /* Adjust button padding for mobile */
+        font-size: 12px; /* Adjust font size for buttons */
+      }
+
+      header {
+        padding: 10px; /* Adjust header padding */
+      }
+
+      main {
+        padding: 10px; /* Adjust main padding */
+      }
+
+      footer i {
+        font-size: 20px; /* Adjust icon size for mobile */
+      }
+    }
+  </style>
+  <script>
+    function toggleCard(card) {
+      const content = card.querySelector('.card-content');
+      content.classList.toggle('active');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Swarn Software Logo">
+    </div>
+  </header>
+  <nav>
+    <a href="index.html">Services</a>
+    <a href="apps.html" class="active">Apps</a>
+    <a href="games.html">Games</a>
+    <a href="templates.html">Templates</a>
+  </nav>
+  <main>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <img src="assets/images/transcode.svg" alt="Transcode">
+        <div class="card-title">Transcode</div>
+        <div class="card-content">
+          
+          <div class="app-description">In the world of gen-z, share your messages in coded form like QR, Morse or even Encrypted format that too for free.</div>
+          <div class="youtube-video">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/N3-IHQkxkik" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <a href="https://drive.usercontent.google.com/u/0/uc?id=1xA8mcbB9pYMZt3TntfG4VjdZ1ANrboWn&export=download" class="download-button">Download</a>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <img src="assets/images/tinbox.png" alt="T-inbox">
+        <div class="card-title">T-inbox</div>
+        <div class="card-content">
+          
+          <div class="app-description">This is a free app which lets you generate temporary emails address and use to sign in any service where you do not want to disclose your primary email address.</div>
+          <div class="youtube-video">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/N3-IHQkxkik" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <a href="https://drive.usercontent.google.com/u/0/uc?id=1Z09LVPRxt_08zH1iSDBEDIKWxZBoLaWV&export=download" class="download-button">Download</a>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <img src="assets/images/imgfy.png" alt="IMGfy">
+        <div class="card-title">IMGfy</div>
+        <div class="card-content">
+          
+          <div class="app-description">Now convert your images format or compress them to reduce the size of the image easily for free.</div>
+          <div class="youtube-video">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/N3-IHQkxkik" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <a href="https://drive.usercontent.google.com/u/0/uc?id=1nCMB2fV-E1_iTNrpUjWxO1VXXtd0cfz-&export=download" class="download-button">Download</a>
+        </div>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <img src="assets/images/Detune.jpg" alt="Detune">
+        <div class="card-title">Detune</div>
+        <div class="card-content">
+          
+          <div class="app-description">Extract audio from video or remove audio from video in very few simple clicks for free.</div>
+          <div class="youtube-video">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/N3-IHQkxkik" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <a href="https://drive.usercontent.google.com/u/0/uc?id=103AJykUos7xTZSymyTJss9QoNbGQq4dW&export=download">Download</a>
+        </div>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+  </main>
+  <footer>
+    <div>
+      <a href="https://www.youtube.com/channel/UCAcdR3fr2Ej0_oEcBU-EmzA"><i class="fab fa-youtube"></i></a>
+      <a href="/assets/images/coming.jpg"><i class="fab fa-blogger"></i></a>
+      <a href="/assets/images/coming.jpg"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
